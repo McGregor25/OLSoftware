@@ -1,0 +1,27 @@
+<div class="menu-contenido">
+    <div class="titulo">
+        <mat-icon>account_circle</mat-icon>
+        <span>OLSoftware</span>
+    </div>
+    <hr>
+    <div class="scroll">
+        <ng-container *ngFor="let item of menu; index as indice">
+            <div class="menu-item" [class.acordeon]="item.acordeon" [class.cerrado]="!item.abierto"
+                [class.activo]="item.activo">
+                <button mat-button (click)="item.abierto? item.abierto = false: item.abierto = true"
+                    [routerLink]="item.url? item.url: null" [routerLinkActive]="item.url? ['modulo-activo']: []">
+                    <mat-icon>{{item.icono}}</mat-icon>
+                    {{item.texto}}
+                    <mat-icon *ngIf="item.acordeon">keyboard_arrow_down</mat-icon>
+                </button>
+                <div [id]="'it_'+indice" class="acordeon-items" *ngIf="item.acordeon" [style.height.px]="item.height">
+                    <button mat-button *ngFor="let sub of item.acordeon" [routerLink]="sub.url? sub.url: null"
+                        [routerLinkActive]="sub.url? ['modulo-activo']: []">
+                        <div class="letra">{{sub.letra}}</div>{{sub.texto}}
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+</div>

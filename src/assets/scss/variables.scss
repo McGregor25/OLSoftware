@@ -1,0 +1,70 @@
+$fondo_app: #f5f5f5;
+$fondo_app_opac: #f5f5f598;
+$fondo_elementos: #ffffff;
+$fondo_elementos_opac: #ffffff98;
+$fondo_controles: #9ba5b140;
+
+@mixin background($param) {
+    background: $param !important;
+}
+
+@mixin color($param) {
+    color: $param !important;
+}
+
+$sombra: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;
+$sombra2: 0px 18px 23px 0px rgba(0, 0, 0, 0.2) !important;
+$sombra_gradiente: 0px 2px 65px 90px $fondo_elementos !important;
+
+@mixin box-shadow($param) {
+    -webkit-box-shadow: $param;
+    -moz-box-shadow: $param;
+    box-shadow: $param;
+}
+
+@mixin border-radius($param) {
+    border-radius: $param !important;
+}
+
+$radio: 10px;
+
+// .myclass {
+//     @include box-shadow($shadows);
+//     @include border-radius($radius);
+// }
+
+// .error {
+//     @include color($error);
+// }
+
+// .correct {
+//     @include color($correct);
+// }
+
+.t-center {
+    text-align: center !important;
+}
+
+.t-left {
+    text-align: left !important;
+}
+
+.t-right {
+    text-align: right !important;
+}
+
+.mat-cell,
+.mat-header-cell,
+.mat-footer-cell {
+    white-space: nowrap;
+}
+
+.mat-table {
+    width: auto;
+    min-width: 100%;
+}
+
+.mat-table .mat-cell,
+.mat-table .mat-header-cell {
+    padding: 2px 10px;
+}

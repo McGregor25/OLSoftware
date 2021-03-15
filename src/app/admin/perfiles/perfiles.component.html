@@ -1,0 +1,122 @@
+<div class="row">
+
+    <div class="contenedor-card filtro modal" id="filtroMovil">
+        <div class="card">
+            <div class="cabecera">
+                <div class="texto primary">
+                    <mat-icon>
+                        search
+                    </mat-icon>
+                    <h2 class="m-0">
+                        Filtrar búsqueda
+                    </h2>
+                </div>
+            </div>
+            <div class="contenido">
+                <div class="row form" [formGroup]="formulario">
+
+                    <ng-container *ngFor="let campo of columns">
+                        <mat-form-field appearance="fill" *ngIf="campo.columna != 'accion'">
+                            <mat-label>{{campo.texto}}</mat-label>
+                            <input matInput [formControlName]="campo.columna">
+                        </mat-form-field>
+                    </ng-container>
+                </div>
+
+                <div class="acciones">
+                    <button mat-flat-button color="accent">Filtrar</button>
+                    <button mat-flat-button color="warn">Limpiar</button>
+                    <button mat-flat-button color="primary" *ngIf="loader.screenWidth <= 991"
+                        (click)="filtroMovil(false)">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-card">
+
+        <div class="card">
+
+            <div class="cabecera">
+                <div class="texto primary">
+                    <mat-icon>
+                        groups
+                    </mat-icon>
+                    <h2 class="m-0">
+                        Usuarios existentes
+                    </h2>
+                </div>
+                <div class="acciones-header">
+                    <button mat-flat-button color="primary" (click)="filtroMovil(true)">Filtrar</button>
+                    <button mat-flat-button color="primary" (click)="abrirModalCrear(true)">Crear</button>
+                </div>
+            </div>
+
+            <div class="tabla">
+                <table mat-table #table [dataSource]="Perfiles" matSort>
+                    <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columna"
+                        [stickyEnd]="column.columna == 'accion'">
+                        <th mat-header-cell *cdkHeaderCellDef mat-sort-header>{{ column.texto }}</th>
+                        <td mat-cell *cdkCellDef="let row">
+                            <ng-container *ngIf="column.columna != 'accion'">
+                                {{ column.celda(row) }}
+                            </ng-container>
+                            <ng-container *ngIf="column.columna == 'accion'">
+                                <button mat-icon-button color="accent">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="columnasMostradas; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: columnasMostradas;"></tr>
+                    <tr mat-row *matNoDataRow>
+                        <td mat-cell colspan="4">No hay datos</td>
+                    </tr>
+                </table>
+            </div>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+        </div>
+
+    </div>
+
+
+    <div class="contenedor-card filtro modal" id="modalCrear">
+        <div class="card">
+            <div class="cabecera">
+                <div class="texto primary">
+                    <mat-icon>
+                        person_add
+                    </mat-icon>
+                    <h2 class="m-0">
+                        Crear
+                    </h2>
+                </div>
+            </div>
+            <div class="contenido">
+                <div class="row form" [formGroup]="formulario">
+                    <div class="row">
+                        <ng-container *ngFor="let campo of columns">
+                            <div class="col-sm-12 col-md-6">
+                                <mat-form-field appearance="fill" *ngIf="campo.columna != 'accion'">
+                                    <mat-label>{{campo.texto}}</mat-label>
+                                    <input matInput [formControlName]="campo.columna">
+                                </mat-form-field>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button mat-flat-button color="primary" (click)="abrirModalCrear(false)">Aceptar</button>
+                    <button mat-flat-button color="warn" (click)="abrirModalCrear(false)">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

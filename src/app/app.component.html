@@ -1,0 +1,31 @@
+<div class="loader" [class.oculto]="!loader.mostrarLoader">
+  <span>{{loader.texto}}</span>
+</div>
+<div id="contenedor-global" [class]="rutaActual" (window:resize)="_eventoRedimencionar($event)"
+  [class.menu-abierto]=" loader.menuAbierto && !abrirConHover && loader.screenWidth >=992"
+  [class.boton-menu]="!abrirConHover">
+  <div class="contenedor-header" *ngIf="rutaActual === 'admin'">
+    <app-header></app-header>
+  </div>
+  <div class="contenedor-menu" *ngIf="rutaActual === 'admin'">
+    <div id="menu" class="menu" [class.abierto]="loader.menuAbierto || loader.screenWidth <= 991"
+      (mouseenter)="abrirMenu(true) " (mouseleave)="abrirMenu(false)">
+      <button mat-icon-button color="primary" *ngIf="loader.screenWidth <= 991" class="cerrar-menu"
+        (click)="cerrarMenu()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <div class="backdrop" (click)="cerrarMenu()"></div>
+      <app-menu></app-menu>
+      <mat-slide-toggle *ngIf="loader.screenWidth >= 992" [(ngModel)]="abrirConHover"
+        matTooltip="Abrir al pasar el cursor" (change)="abrirMenu(true)">
+        Abrir al pasar el cursor
+      </mat-slide-toggle>
+    </div>
+  </div>
+  <div class="contenido-app">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="pie-pagina">
+    <app-footer></app-footer>
+  </div>
+</div>

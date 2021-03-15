@@ -1,0 +1,51 @@
+.contenedor-header {
+    z-index: 5000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-left: 80px;
+    display: block;
+    left: 0;
+    height: 78px;
+    @include box-shadow($sombra);
+    @include background($fondo_elementos);
+}
+
+.header {
+    height: 100%;
+    > button:first-child {
+        zoom: 0.5;
+        margin: 10px;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .titulo {
+        font-size: 22px;
+        font-weight: 600;
+        color: $primary-color;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: fit-content;
+    }
+    .salir {
+        zoom: 1.2;
+        float: right;
+        position: absolute;
+        right: 45px;
+        top: 15px;
+    }
+    .salir:nth-child(3) {
+        top: 11px;
+        margin-left: 10px;
+        position: absolute;
+        right: 5px;
+    }
+}
+
+.boton-menu .header > button:first-child {
+    zoom: 1.3;
+    opacity: 1;
+    pointer-events: all;
+}

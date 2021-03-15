@@ -1,0 +1,46 @@
+.card {
+    @include box-shadow($sombra);
+    @include background($fondo_elementos);
+    border-radius: 13px;
+    display: block;
+    padding: 20px;
+    .cabecera {
+        padding-bottom: 5px;
+        h1 {
+            margin: 10px 0 !important;
+            font-weight: 700;
+            color: #636363;
+        }
+    }
+    .contenido {
+        padding: 5px 0;
+    }
+    .acciones {
+        padding-top: 5px;
+    }
+}
+
+.tabla {
+    border-radius: 13px;
+}
+
+.card.footer {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    span {
+        text-align: center;
+        font-weight: 500;
+        display: block;
+        color: #969696;
+    }
+}
+.card.sombra2 {
+    @include box-shadow($sombra2);
+}
+
+@media (max-width: 767px) {
+    .formulario-login .card {
+        @include box-shadow($sombra_gradiente);
+    }
+}

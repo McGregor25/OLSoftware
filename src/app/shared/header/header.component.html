@@ -1,0 +1,22 @@
+<div class="header">
+    <button mat-icon-button color="primary" (click)="abrirMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="titulo">
+        Prueba Front-end
+    </span>
+
+    <button mat-icon-button color="primary" class="salir" (click)="salir()">
+        <mat-icon>
+            logout
+        </mat-icon>
+    </button>
+
+    <button mat-button class="salir perfil" *ngIf="loader.screenWidth >= 992">
+        <mat-icon>
+            account_circle
+        </mat-icon>
+        Beyman Magrego López
+    </button>
+</div>

@@ -1,0 +1,80 @@
+// importo las variables para usarlas desde cualquier lugar
+@import "assets/scss/variables.scss";
+// fuentes
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+@include mat-core();
+
+// $mat-light-theme-foreground: (
+//   base: #38383d,
+//   divider: #caccd3,
+//   dividers: #caccd3,
+//   disabled: rgba(89, 94, 107, 0.38),
+//   disabled-button: rgba(89, 94, 107, 0.38),
+//   disabled-text: rgba(89, 94, 107, 0.38),
+//   hint-text: rgba(89, 94, 107, 0.38),
+//   secondary-text: #38383d,
+//   icon: #38383d,
+//   icons: #38383d,
+//   text: #38383d,
+//   slider-off: rgba(153, 169, 187, 0.425),
+//   slider-off-active: rgba(153, 169, 187, 0.52),
+// );
+
+// Angular material
+$ol-software-prueba-beyman-primary: mat-palette($mat-blue, 800);
+$ol-software-prueba-beyman-accent: mat-palette($mat-green, A700);
+
+$ol-software-prueba-beyman-warn: mat-palette($mat-red);
+
+$ol-software-prueba-beyman-theme: mat-light-theme(
+  (
+    color: (
+      primary: $ol-software-prueba-beyman-primary,
+      accent: $ol-software-prueba-beyman-accent,
+      warn: $ol-software-prueba-beyman-warn,
+    ),
+  )
+);
+
+$primary-color: mat-color($ol-software-prueba-beyman-primary);
+$accent-color: mat-color($ol-software-prueba-beyman-accent);
+$warn-color: mat-color($ol-software-prueba-beyman-warn);
+
+.primary * {
+  color: $primary-color !important;
+}
+
+@include angular-material-theme($ol-software-prueba-beyman-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/icons.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  @include background($fondo_app);
+  margin: 0;
+  * {
+    font-family: "Poppins" !important;
+  }
+
+  .material-icons {
+    font-family: "Material Icons Round" !important;
+  }
+}
+
+// Importacion de estilos
+@import "assets/scss/grids.scss";
+@import "assets/scss/cards.scss";
+@import "assets/scss/inputs.scss";
+@import "assets/scss/loader.scss";
+@import "assets/scss/menu.scss";
+@import "assets/scss/header.scss";
+@import "assets/scss/scrollbars.scss";
+@import "assets/scss/tablas.scss";

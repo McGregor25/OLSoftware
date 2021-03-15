@@ -1,0 +1,141 @@
+@-webkit-keyframes escala {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+}
+@keyframes escala {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+}
+
+@-webkit-keyframes opacidad {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes opacidad {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+$animacion1: escala 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite alternate-reverse both;
+$animacion2: escala 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s infinite alternate-reverse both;
+$animacion3: escala 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite alternate-reverse both;
+
+$espacio_horizontal: 60px;
+$tamano: 25px;
+$espacio_vertical: 40px;
+
+.loader {
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation: opacidad 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: #000000b5;
+    z-index: 50000;
+    text-align: center;
+    span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        bottom: $espacio_vertical;
+        height: fit-content;
+        font-size: 20px;
+        padding: 10px;
+        @include color($fondo_elementos);
+        text-shadow: 0px 0px 15px black;
+    }
+    span::before {
+        content: "";
+        width: $tamano;
+        height: $tamano;
+        position: fixed;
+        left: 0;
+        background: white;
+        @include box-shadow($sombra);
+        border-radius: 50%;
+        right: 0;
+        margin: auto;
+        top: $espacio_vertical;
+        bottom: 0;
+        animation: $animacion2;
+    }
+}
+
+.loader::before {
+    content: "";
+    width: $tamano;
+    height: $tamano;
+    position: fixed;
+    left: 0;
+    background: white;
+    @include box-shadow($sombra);
+    border-radius: 50%;
+    right: $espacio_horizontal;
+    margin: auto;
+    top: $espacio_vertical;
+    bottom: 0;
+    animation: $animacion1;
+}
+
+.loader::after {
+    content: "";
+    width: $tamano;
+    height: $tamano;
+    position: fixed;
+    left: $espacio_horizontal;
+    background: white;
+    @include box-shadow($sombra);
+    border-radius: 50%;
+    right: 0;
+    margin: auto;
+    top: $espacio_vertical;
+    bottom: 0;
+    animation: $animacion3;
+}
+
+.loader.oculto {
+    animation: opacidad 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) reverse;
+    opacity: 0;
+    pointer-events: none !important;
+    transition: opacity 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.loader.oculto::before {
+    animation: none !important;
+    display: none;
+}
+
+.loader.oculto::after {
+    animation: none !important;
+    display: none;
+}
+
+.loader.oculto span::before {
+    animation: none !important;
+    display: none;
+}

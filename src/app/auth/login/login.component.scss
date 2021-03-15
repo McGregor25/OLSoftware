@@ -1,0 +1,196 @@
+.fondo-login {
+    height: 100%;
+}
+
+.fondo-login::before {
+    content: "";
+    background-image: url(../../../assets/imagenes/login/fondo-login.png);
+    width: 100%;
+    height: calc(100% - 60px);
+    position: fixed;
+    background-position: top left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -3px;
+    top: -50px;
+}
+
+@media (min-width: 768px) {
+    @media (min-aspect-ratio: 2/4) {
+        .fondo-login::before {
+            top: 0;
+            left: -2px;
+            transform: scale(2.5);
+            transform-origin: left top;
+        }
+    }
+
+    @media (min-aspect-ratio: 1/1) {
+        .fondo-login::before {
+            top: 0;
+            left: -27px;
+            transform: scale(1.2);
+            transform-origin: left top;
+        }
+    }
+
+    @media (min-aspect-ratio: 14/9) {
+        .fondo-login::before {
+            top: 0;
+            left: -2px;
+            transform: scale(1.1);
+            transform-origin: left;
+        }
+    }
+
+    @media (min-aspect-ratio: 5/2) {
+        .fondo-login::before {
+            top: 0;
+            left: -2px;
+            transform: scale(1.5);
+            transform-origin: left;
+        }
+    }
+}
+
+.fondo-login::after {
+    content: "";
+    background: rgb(0, 0, 0);
+    background: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 0.8631827731092436) 0%,
+        rgba(0, 0, 0, 0.12368697478991597) 22%,
+        rgba(0, 0, 0, 0) 43%
+    );
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    top: -154px;
+    left: -154px;
+    transform: scale(5.5);
+}
+
+.formulario-login {
+    position: fixed;
+    right: -46vw;
+    width: 300px;
+    height: 300px;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 1;
+    left: 0;
+    .card {
+        height: 100%;
+        border-radius: 20px;
+        .contenido {
+            justify-content: center;
+            display: grid;
+        }
+        .acciones {
+            button {
+                padding: 6px 21px;
+                width: 100%;
+                max-width: 225px;
+            }
+        }
+    }
+}
+
+.texto-login {
+    color: white;
+    top: 0;
+    bottom: 120px;
+    height: fit-content;
+    width: 300px;
+    margin: auto;
+    position: fixed;
+    left: -46vw;
+    right: 0;
+    font-size: 18px;
+    z-index: 1;
+    * {
+        text-shadow: 0px 0px 70px rgb(0 0 0);
+    }
+    h1 {
+        font-weight: 600;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .texto-login {
+        left: 0;
+        top: 9vh;
+        bottom: unset;
+        padding: 0 10px;
+    }
+    .fondo-login::before {
+        background-image: url(../../../assets/imagenes/login/fondo-login.jpg);
+        background-size: cover;
+        background-position: left top;
+        left: 0;
+        right: 0;
+        width: 101%;
+    }
+
+    .fondo-login::after {
+        background: #0000006b;
+        transform: scale(14.5);
+    }
+
+    .formulario-login {
+        bottom: 0;
+        right: 0;
+        top: unset;
+        width: 100%;
+        height: 335px;
+        .card {
+            border-radius: 0;
+            padding: 0;
+            .cabecera h1 {
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+@media (max-height: 600px) {
+    .formulario-login {
+        zoom: 0.89;
+    }
+}
+
+.mensaje-inicial {
+    transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+    position: fixed;
+    z-index: 5000;
+    top: 16px;
+    max-width: 320px;
+    width: 100%;
+    left: 16px;
+    transform: scale(0);
+    transform-origin: left top;
+    opacity: 0;
+    .card {
+        border-radius: 50%;
+        padding: 40.5px;
+        height: fit-content;
+        border-top-left-radius: 15px;
+        text-align: center;
+        * {
+            justify-content: center;
+        }
+        h1 {
+            margin: 0 !important;
+        }
+        p {
+            line-height: 1.2;
+        }
+    }
+}
+
+.mensaje-inicial.abierto{
+    transform: scale(1);
+    opacity: 1;
+}

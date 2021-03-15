@@ -1,0 +1,61 @@
+<div class="row" class="fondo-login">
+
+    <div class="texto-login">
+        <h1>
+            Aplicación OLSoftware
+        </h1>
+        Prueba práctica Front-end senior
+    </div>
+    <div class="formulario-login">
+        <div class="card sombra2">
+            <div class="cabecera t-center">
+                <h1>
+                    Inicio de sesión
+                </h1>
+            </div>
+            <div class="contenido row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-icon matSuffix>lock</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="acciones t-center row">
+                <div class="col-10 m-auto login-btn">
+                    <button mat-flat-button color="primary" (click)="login()">Inciar sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mensaje-inicial" class="mensaje-inicial">
+    <div class="card sombra2">
+        <div class="cabecera t-center">
+            <h1>
+                ¡Hola!
+            </h1>
+        </div>
+        <div class="contenido row">
+            <p>
+                Bienvenido, puedes probarme en todo tipo de pantallas, usa el developer tools de tu navegador , verás
+                como me adapto a cualquier tamaño.
+                <br>
+                <br>
+                no es
+                necesario ingresar credenciales de usuario para iniciar sesion
+            </p>
+            <br>
+            <button mat-flat-button color="primary" (click)="mensajeInicial()">OK</button>
+
+        </div>
+    </div>
+</div>
