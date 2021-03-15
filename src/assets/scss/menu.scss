@@ -25,9 +25,10 @@
     height: 100vh;
     overflow: hidden;
     .scroll {
-        height: calc(100% - 85px);
+        height: calc(100% - 158px);
         overflow-y: auto;
         overflow-x: hidden;
+        border-bottom: solid 2px #ffffff63;
     }
     .titulo {
         display: flex;
@@ -243,11 +244,15 @@
         width: 100vw !important;
         height: fit-content !important;
         position: relative !important;
-        padding: 70px 0px 0px 0px !important
+        padding: 70px 0px 0px 0px !important;
     }
 
     .pie-pagina {
         position: relative !important;
     }
 
+    .menu .menu-contenido .scroll {
+        height: calc(100% - 85px);
+        border-bottom: solid 2px #ffffff00;
+    }
 }
